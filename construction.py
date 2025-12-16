@@ -25,7 +25,7 @@ def declarations_ipp(plateaux_file, ref_file, output_file=None):
     final['Product'] = np.select(conditions, valeurs, default='erreur')
 
     final = final.rename(columns={
-        'Nb. Palettes REELLES VERIFIEES': 'Quantity',
+        'Nb. Palettes': 'Quantity',
         'N° commande': 'Reference',
         'Date chargement': 'Date Dispatched'
     })
