@@ -41,6 +41,11 @@ def declarations_ipp(plateaux_file, ref_file, output_file=None):
     new['Date Dispatched'] = pd.to_datetime(new['Date Dispatched'], errors='coerce')
     new['Date Dispatched'] = new['Date Dispatched'].dt.strftime('%d/%m/%Y')
 
+    new = new[
+        new['Reference'].notna() &
+        (new['Reference'].astype(str).str.strip() != '')
+    ]
+
     if output_file:
         new.to_excel(output_file, index=False)
 
