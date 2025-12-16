@@ -25,3 +25,6 @@ venv/
 
 # Cache VSCode
 .vscode/
+
+# Folder
+données/
