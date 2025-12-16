@@ -10,6 +10,7 @@ def declarations_ipp(plateaux_file, ref_file, output_file=None):
 
     final = plateaux.merge(ref, left_on='Client', right_on='ID recipient', how='left')
 
+    final.drop(columns=['ID recipient'], inplace=True)
     final['File Nr'] = final.index + 1
     final['Row Nr'] = final.index + 1
     final['Palletpool ID sender'] = "SCICA Gerfruit"
@@ -27,7 +28,8 @@ def declarations_ipp(plateaux_file, ref_file, output_file=None):
     final = final.rename(columns={
         'Nb. Palettes': 'Quantity',
         'N° commande': 'Reference',
-        'Date chargement': 'Date Dispatched'
+        'Date chargement': 'Date Dispatched',
+        'Client' : 'ID recipient'
     })
 
     columns = ['File Nr', 'Row Nr', 'Palletpool ID sender', 'Palletpool ID recipient', 'ID recipient',
