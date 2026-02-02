@@ -1,8 +1,9 @@
-Python 3.12
-streamlit>=1.31
+streamlit>=1.31,<2
 altair<5
 pandas
 numpy
+pyarrow
 openpyxl
-streamlit
+pillow
+
 
